@@ -71,12 +71,22 @@ document.querySelectorAll('.js-add-to-cart')
       });
 
       if (matchingItem) {
-        matchingItem.quiantity++;
+        matchingItem.quantity++;
       } else {
         cart.push({
         productId,
-        quiantity: 1
+        quantity: 1
       });
-      };
+      }
+
+      let cartQuantity = 0;
+
+      cart.forEach((item) => {
+        cartQuantity += item.quantity;
+      });
+
+      document.querySelector('.js-cart-quantity')
+        .innerHTML = cartQuantity;
     });
   });
+
