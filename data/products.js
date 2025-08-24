@@ -35,6 +35,16 @@ class Product {
   }
 }
 
+class Clothing extends Product {
+  sizeChartLink;
+
+  constructor(productDetails) {
+    super(productDetails);
+    this.sizeChartLink = productDetails.sizeChartLink;
+  }
+}
+
+
 export const products = [
   {
     id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
@@ -695,5 +705,9 @@ export const products = [
     ]
   }
 ].map((productDetails) => {
-  return new Product(productDetails);
+  if(productDetails.type === 'clothing') {
+    return new Clothing(productDetails);
+  } else {
+    return new Product(productDetails);
+  }
 });
