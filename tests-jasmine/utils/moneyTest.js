@@ -1,4 +1,4 @@
-import { formatCurrency } from "../scripts/utils/money.js";
+import { formatCurrency } from "../../scripts/utils/money.js";
 
 // create the test suite
 describe('formatCurrency', () => {
@@ -10,12 +10,14 @@ describe('formatCurrency', () => {
     expect(formatCurrency(0)).toEqual('0.00');
   });
 
-  it('round up', () => {
+describe('rounding', () => {
+ it('round up', () => {
     expect(formatCurrency(2000.5)).toEqual('20.01');
   });
 
   it('rounds down', () => {
     expect(formatCurrency(2000.4)).toEqual('20.00');
   });
+});
 });
 
