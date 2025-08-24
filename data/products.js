@@ -57,7 +57,6 @@ class Clothing extends Product {
   }
 }
 
-
 export const products = [
   {
     id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
@@ -724,3 +723,28 @@ export const products = [
     return new Product(productDetails);
   }
 });
+
+/* Practice code
+const date = new Date();
+console.log(date);
+console.log(date.toLocaleTimeString());
+*/
+// usually use Dayjs instead of Date directly
+
+/*
+function logThis() {
+  console.log(this);
+}
+//undefined
+logThis();
+// set this to whatever you want with .call
+logThis.call('hello');
+
+const object3 = {
+  // arrow functions don't change the value of 'this'
+  // or, 'this' keeps the value it had before the arrow function
+  method: () => {
+    console.log(this);
+  }
+};
+*/
