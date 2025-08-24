@@ -59,6 +59,7 @@ class Clothing extends Product {
 
 export let products = [];
 
+// callback
 export function loadProducts(fun) {
   const xhr = new XMLHttpRequest();
 
