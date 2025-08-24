@@ -8,19 +8,24 @@ import { loadCart } from "../data/cart.js";
 
 // async makes a function return a promise
 async function loadPage() {
- await loadProductsFetch();
+  try {
+    await loadProductsFetch();
 
- await new Promise((resolve) => {
-    loadCart(() => { 
-      resolve();
-    });
-  });
+    const value = await new Promise((resolve) => {
+        loadCart(() => { 
+          resolve();
+        });
+      });
+
+  } catch (error) {
+    console.log(`Unexpected error: ${error.name}. Please try again later.`);
+  }
 
   renderOrderSummary();
   renderPaymentSummary();
 }
 
-loadPage()
+loadPage();
 
 /*
 // Like below, but here thet finish all the promises until they do the next step
