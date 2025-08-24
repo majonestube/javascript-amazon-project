@@ -6,12 +6,29 @@ import { loadCart } from "../data/cart.js";
 // import '../data/backend-practice.js';
 
 
+// async makes a function return a promise
+async function loadPage() {
+ await loadProductsFetch();
+
+ await new Promise((resolve) => {
+    loadCart(() => { 
+      resolve();
+    });
+  });
+
+  renderOrderSummary();
+  renderPaymentSummary();
+}
+
+loadPage()
+
+/*
 // Like below, but here thet finish all the promises until they do the next step
 Promise.all([
   loadProductsFetch(),
 
   new Promise((resolve) => {
-    loadProducts(() => { 
+    loadCart(() => { 
       resolve('value1');
     });
   })
@@ -20,7 +37,7 @@ Promise.all([
   renderOrderSummary();
   renderPaymentSummary();
 });
-
+*/
 
 /*
 // promise --> run the function immediately
